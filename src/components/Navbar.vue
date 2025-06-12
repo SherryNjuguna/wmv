@@ -1,0 +1,115 @@
+<script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute();
+
+/**
+ * Function to check if the current route matches the given path
+ */
+const isActive = (path) => computed(() => route.path.startsWith(path));
+
+const navLinks = [
+  { label: "HOME", to: "/", icon: "fas fa-home" },
+  { label: "ABOUT US", to: "/about", icon: "fas fa-info-circle" },
+  { label: "SERVICES", to: "/services", icon: "fas fa-graduation-cap" },
+  { label: "SHOP", to: "/shop", icon: "fas fa-shop" },
+  { label: "CONTACT US", to: "/contact", icon: "fas fa-envelope" }
+];
+
+</script>
+
+<template>
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: white;">
+      <!-- Logo -->
+      <a class="navbar-brand ms-5" href="#">
+        <img src="/wmvlogo3.png" alt="Logo" class="logo-image" style="width: 80px; height: 60px;">
+      </a>
+  
+      <!-- Blue toggler button -->
+      <button class="navbar-toggler px-4 ms-5 border-0 custom-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav px-5 text-center text-lg-end w-100 justify-content-end">
+          <li class="nav-item mx-lg-3  my-lg-0" v-for="(link, i) in navLinks" :key="i">
+            <router-link
+  :to="link.to"
+  class="nav-link custom-link  gap-2"
+  active-class="active-link"
+  exact
+>
+  <i :class="link.icon"></i>
+  {{ link.label }}
+</router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </template>
+  
+  <style scoped>
+
+.active-link {
+  color: green;
+}
+
+.active-link::after {
+  transform: scaleX(1);
+}
+
+/* Make toggler icon blue */
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='blue' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Make nav links black & bold */
+.custom-link {
+  color: black;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s;
+}
+
+/* Hover effect with blue text and underline */
+.custom-link:hover {
+  color: rgb(7, 187, 7); /* Bootstrap blue */
+}
+
+.custom-link::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: rgb(2, 75, 2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  margin-top: 5px;
+}
+
+.custom-link:hover::after {
+  transform: scaleX(1);
+}
+/* Fix spacing on mobile and desktop */
+.nav-item {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+/* Remove default padding on mobile collapse if needed */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+  </style>
+  
