@@ -65,22 +65,18 @@ const navLinks = [
   transform: scaleX(1);
 }
 
-/* Make toggler icon blue */
 .custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='blue' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='green' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* Make nav links black & bold */
 .custom-link {
   color: black;
   font-weight: bold;
   position: relative;
   transition: color 0.3s;
 }
-
-/* Hover effect with blue text and underline */
 .custom-link:hover {
-  color: rgb(7, 187, 7); /* Bootstrap blue */
+  color: rgb(7, 187, 7);
 }
 
 .custom-link::after {
@@ -97,13 +93,13 @@ const navLinks = [
 .custom-link:hover::after {
   transform: scaleX(1);
 }
-/* Fix spacing on mobile and desktop */
+
 .nav-item {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
 
-/* Remove default padding on mobile collapse if needed */
+
 @media (max-width: 991.98px) {
   .navbar-nav {
     padding-top: 1rem;

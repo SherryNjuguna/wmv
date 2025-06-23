@@ -6,26 +6,29 @@
     <div class="hero-overlay"></div>
     <div class="hero-content container">
       <div class="text-white hero-text">
-        <h1 class="hero-title">You have to study to become</h1>
+        <h1 class="hero-title">Turning <br><strong>FINANCIAL KNOWLEDGE</strong> <br>into <strong>WEALTH</strong></h1>
         <p class="hero-description">
           We believe that financial literacy is the cornerstone of building
           lasting wealth and achieving financial independence.
         </p>
+        <router-link to="/about" class="text-white text-decoration-none">
+          <button class="btn btn-primary">
+            Learn More
+          </button>
+        </router-link>
       </div>
     </div>
   </section>
-
- 
 </template>
 
 <style scoped>
 .hero-section {
   position: relative;
   width: 100%;
+  height: 70vh; /* Reduced height for mobile */
+  max-height: 800px;
   overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* Hero Image */
@@ -33,90 +36,133 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  object-position: center;
 }
 
-@media (min-width: 640px) {
-  .hero-image {
-    height: 80vh;
-  }
-}
-
-/* Overlay with solid transparency */
+/* Overlay */
 .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity as needed */
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Hero Content - now properly centered */
+/* Hero Content */
 .hero-content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  max-width: 1200px;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
   z-index: 2;
 }
 
 .hero-text {
-  max-width: 800px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
 .hero-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem; /* Reduced margin */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1.3;
+}
+
+.hero-title strong {
+  font-size: 1.8rem;
+  display: inline-block;
+  margin: 0.3rem 0;
 }
 
 .hero-description {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
+  font-size: 1rem;
+  margin: 1rem auto; /* Reduced margin */
   line-height: 1.5;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
+  max-width: 90%;
 }
 
 .btn-primary {
-  background-color: rgb(20, 101, 167);
+  background-color: rgb(7, 201, 7);
   color: white;
-  border-radius: 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 1rem;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.6rem 1.2rem; /* Slightly reduced padding */
   transition: all 0.3s ease;
-  white-space: nowrap;
-  flex: 1 1 auto;
-  max-width: 200px;
+  margin-top: 0.8rem; /* Reduced margin */
 }
 
 .btn-primary:hover {
-  background-color: rgb(23, 150, 247);
+  background-color: rgb(44, 243, 44);
   transform: translateY(-2px);
 }
 
+/* Tablet and larger */
 @media (min-width: 640px) {
+  .hero-section {
+    height: 80vh; /* Taller on tablets */
+  }
+  
+  .hero-content {
+    /* padding: 2rem; */
+  }
+  
   .hero-title {
+    font-size: 2rem;
+    /* margin-bottom: 1.5rem; */
+  }
+  
+  .hero-title strong {
     font-size: 2.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1.25rem;
+    max-width: 80%;
+    /* margin: 1.5rem auto; */
+  }
+  
+  .btn-primary {
+    font-size: 1.1rem;
+    /* padding: 0.75rem 1.5rem;
+    margin-top: 1rem; */
   }
 }
 
+/* Desktop */
 @media (min-width: 1024px) {
+  .hero-section {
+    height: 90vh; /* Tallest on desktop */
+  }
+  
+  .hero-content {
+    /* padding: 3rem; */
+  }
+  
   .hero-title {
+    font-size: 2.5rem;
+    /* margin-bottom: 2rem; */
+  }
+  
+  .hero-title strong {
     font-size: 3rem;
+  }
+  
+  .hero-description {
+    font-size: 1.5rem;
+    max-width: 70%;
+    /* margin: 2rem auto; */
+  }
+  
+  .hero-text {
+    max-width: 800px;
   }
 }
 </style>
