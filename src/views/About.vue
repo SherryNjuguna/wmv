@@ -2,6 +2,7 @@
 import { RouterLink } from "vue-router";
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
+import Mission from "../components/Mission.vue";
 </script>
 
 <template>
@@ -81,7 +82,7 @@ import Footer from "../components/Footer.vue";
               </h2>
 
               <div class="philosophy-content">
-                <p class="lead mb-4">You study what you want to become.</p>
+                <p class="fw-bold mb-4">You study what you want to become.</p>
 
                 <ul class="list-unstyled">
                   <li class="mb-3 d-flex align-items-start">
@@ -126,6 +127,8 @@ import Footer from "../components/Footer.vue";
       </div>
     </div>
   </section>
+
+  <Mission />
 
   <Footer />
 </template>
