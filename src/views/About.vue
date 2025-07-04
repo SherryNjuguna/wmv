@@ -58,7 +58,7 @@ import Mission from "../components/Mission.vue";
       </div>
       <div class="col-lg-6 text-center mt-4 mt-lg-0">
         <img
-          src="/wmv5.png"
+          src="/wmv11.jpeg"
           alt="about bulb"
           class="img-fluid"
           style="max-height: 400px"
