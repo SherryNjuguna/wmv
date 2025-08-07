@@ -22,10 +22,11 @@
 </template>
 
 <style scoped>
+/* Base styles for the hero section */
 .hero-section {
   position: relative;
   width: 100%;
-  height: 70vh; /* Reduced height for mobile */
+  height: 70vh; 
   max-height: 800px;
   overflow: hidden;
   display: flex;
@@ -68,7 +69,7 @@
 
 .hero-title {
   font-size: 1.5rem;
-  margin-bottom: 1rem; /* Reduced margin */
+  margin-bottom: 1rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   line-height: 1.3;
 }
@@ -81,7 +82,7 @@
 
 .hero-description {
   font-size: 1rem;
-  margin: 1rem auto; /* Reduced margin */
+  margin: 1rem auto; 
   line-height: 1.5;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   max-width: 90%;
@@ -107,16 +108,12 @@
 /* Tablet and larger */
 @media (min-width: 640px) {
   .hero-section {
-    height: 80vh; /* Taller on tablets */
-  }
+    height: 80vh;
+    }
   
-  .hero-content {
-    /* padding: 2rem; */
-  }
   
   .hero-title {
     font-size: 2rem;
-    /* margin-bottom: 1.5rem; */
   }
   
   .hero-title strong {
@@ -126,29 +123,23 @@
   .hero-description {
     font-size: 1.25rem;
     max-width: 80%;
-    /* margin: 1.5rem auto; */
   }
   
   .btn-primary {
     font-size: 1.1rem;
-    /* padding: 0.75rem 1.5rem;
-    margin-top: 1rem; */
+   
   }
 }
 
 /* Desktop */
 @media (min-width: 1024px) {
   .hero-section {
-    height: 90vh; /* Tallest on desktop */
-  }
-  
-  .hero-content {
-    /* padding: 3rem; */
+    height: 90vh; 
   }
   
   .hero-title {
     font-size: 2.5rem;
-    /* margin-bottom: 2rem; */
+   
   }
   
   .hero-title strong {
@@ -158,7 +149,7 @@
   .hero-description {
     font-size: 1.5rem;
     max-width: 70%;
-    /* margin: 2rem auto; */
+  
   }
   
   .hero-text {

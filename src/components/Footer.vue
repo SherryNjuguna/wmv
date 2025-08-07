@@ -5,24 +5,26 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 
 /**
- * Function to check if the current route matches the given path
+ * Computes whether the current route matches the given path
+ * @param {string} path - The path to check against current route
+ * @returns {boolean} True if current route starts with the given path
  */
 const isActive = (path) => computed(() => route.path.startsWith(path));
 </script>
+
 <template>
   <footer
-    class="ftco-footer ftco-no-pb ftco-section"
+    class="ftco-footer"
     style="background-color: rgb(2, 75, 2); color: white; padding: 20px 0"
   >
-    <div class="container-fluid" style="width: 100%">
-      <!-- Using container-fluid for full-width layout -->
+    <!-- Main footer content -->
+    <div class="container-fluid">
       <div class="row justify-content-center text-center mb-5">
-        <!-- Added justify-content-center and text-center -->
+        <!-- Quick Links Section -->
         <div class="col-md-6 col-lg-3">
           <div class="ftco-footer-widget mb-4">
             <div class="section-header">
-              <span class="resource-apexcel"> Quick Links</span>
-              <!-- Increased font size to 32px -->
+              <span class="resource-apexcel">Quick Links</span>
             </div>
             <ul class="footer-list">
               <li>
@@ -52,6 +54,8 @@ const isActive = (path) => computed(() => route.path.startsWith(path));
             </ul>
           </div>
         </div>
+
+        <!-- Programs Section -->
         <div class="col-md-6 col-lg-3">
           <div class="ftco-footer-widget mb-4">
             <div class="section-header">
@@ -62,9 +66,12 @@ const isActive = (path) => computed(() => route.path.startsWith(path));
               <li>Investment Mastery Workshops</li>
               <li>Personal Finance Coaching</li>
               <li>Corporate Financial Wellness Sessions</li>
+              <li>Student Financial Training</li>
             </ul>
           </div>
         </div>
+
+        <!-- Contact Us Section -->
         <div class="col-md-6 col-lg-3">
           <div class="ftco-footer-widget mb-4">
             <div class="section-header">
@@ -72,23 +79,34 @@ const isActive = (path) => computed(() => route.path.startsWith(path));
             </div>
             <ul class="footer-list">
               <li>
-                <i class="fas fa-envelope" style="color: white"></i>
+                <i class="fas fa-envelope"></i>
                 studyofwealth101@gmail.com
               </li>
+              <li><i class="fas fa-phone"></i> +254 706651438</li>
               <li>
-                <i class="fas fa-phone" style="color: white"></i> +254 706651438
-              </li>
-              <li class="">
-                <i
-                  class="fab fa-youtube"
-                  style="color: white"
+                <a
                   href="https://www.youtube.com/@studyofwealth"
-                ></i>
-                <i
-                  class="fab fa-tiktok ms-2"
-                  style="color: white"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a
                   href="https://www.tiktok.com/@studyofwealth"
-                ></i>
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="ms-2"
+                >
+                  <i class="fab fa-tiktok"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/newsletters/study-of-wealth-7205257944148488192/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="ms-2"
+                >
+                  <i class="fab fa-linkedin"></i>
+                </a>
               </li>
             </ul>
           </div>
@@ -96,10 +114,12 @@ const isActive = (path) => computed(() => route.path.startsWith(path));
       </div>
     </div>
 
+    <!-- Footer divider line -->
     <hr style="border-color: white; opacity: 1" class="mx-5" />
 
+    <!-- Copyright section -->
     <div class="container-fluid px-0 py-3">
-      <div class="row no-gutters">
+      <div class="row">
         <div class="col-md-12">
           <p class="footer-text mb-0 text-center">
             &copy; 2025 THE WEALTH MINDSET VENTURES (WMV). All Rights Reserved
@@ -109,11 +129,14 @@ const isActive = (path) => computed(() => route.path.startsWith(path));
     </div>
   </footer>
 </template>
+
 <style scoped>
+/* Base footer styling */
 footer {
   margin-top: auto;
 }
 
+/* Section header styling */
 .section-header {
   font-size: 32px;
   display: flex;
@@ -123,6 +146,7 @@ footer {
   color: white;
 }
 
+/* Footer list styling */
 .footer-list {
   list-style-type: none;
   padding: 0;
@@ -134,13 +158,22 @@ footer {
   display: flex;
   align-items: center;
   gap: 5px;
+  color: white;
 }
 
+/* Special text styling */
 .resource-apexcel {
   font-weight: bold;
   font-size: 22px;
 }
+
 .footer-text {
-  font-size: 16px; /* Adjust the font size as needed */
+  font-size: 16px;
+}
+
+/* Icon color - applied globally to all icons in footer */
+.fas,
+.fab {
+  color: white;
 }
 </style>
