@@ -20,17 +20,13 @@ import "swiper/css/autoplay";
 const blogs = ref([]);
 const isLoading = ref(true);
 
-
-
 onMounted(async () => {
   try {
     AOS.refresh();
 
     const response = await blogService.getBlogs();
-    console.log("Raw API Response:", response);
 
     blogs.value = Array.isArray(response) ? response : [];
-    console.log("Processed blogs:", blogs.value);
 
     await nextTick();
   } catch (error) {
@@ -47,7 +43,6 @@ const getImageUrl = (blog) => {
       blog?.attributes?.featured_image?.data?.[0]?.attributes;
 
     if (!imageAttributes?.url) {
-     
       return null; // Return null instead of fallback path
     }
 
@@ -94,17 +89,23 @@ const getImageUrl = (blog) => {
           stages of life—students, employees, and social groups—with the skills,
           knowledge, and confidence to make informed financial decisions.
         </p>
-        <router-link to="/about" class="text-decoration-none">
-          <button class="btn-one">Learn More</button>
+        <router-link
+          to="/about"
+          class="text-decoration-none d-flex justify-content-center justify-content-lg-start"
+        >
+          <button class="btn-one mt-4 mt-lg-0">Learn More</button>
         </router-link>
       </div>
 
       <!-- Image Column -->
-      <div class="col-lg-6 text-center mt-4 mt-lg-0" data-aos="fade-up">
+      <div
+        class="col-lg-6 text-center mt-4 mt-lg-0 mx-auto mx-lg-0"
+        data-aos="fade-up"
+      >
         <img
           src="/bulb.png"
           alt="about bulb"
-          class="img-fluid"
+          class="img-fluid rounded-corners d-block mx-auto"
           style="max-height: 400px"
         />
       </div>
@@ -117,79 +118,78 @@ const getImageUrl = (blog) => {
   </section>
 
   <!-- Blog Section -->
-<section class="py-5 bg-light-green" data-aos="fade-up">
-  <div class="container">
-    <h2
-      class="text-center text-dark-green mb-5 position-relative section-title"
-    >
-      Latest blogs
-      <span class="title-underline"></span>
-    </h2>
+  <section class="py-5 bg-light-green" data-aos="fade-up">
+    <div class="container">
+      <h2
+        class="text-center text-dark-green mb-5 position-relative section-title"
+      >
+        Latest blogs
+        <span class="title-underline"></span>
+      </h2>
 
-    <!-- Loading State -->
-    <div v-if="isLoading" class="text-center py-5">
-      <p>Loading blogs...</p>
-    </div>
-
-    <!-- Data States -->
-    <div v-else>
-      <!-- Empty State -->
-      <div v-if="blogs.length === 0" class="text-center py-5">
-        <p>No blogs found</p>
+      <!-- Loading State -->
+      <div v-if="isLoading" class="text-center py-5">
+        <p>Loading blogs...</p>
       </div>
 
-      <!-- Data Loaded State -->
+      <!-- Data States -->
       <div v-else>
-        <Swiper
-          class="blog-swiper"
-          :modules="[Navigation, Pagination, Autoplay]"
-          :slides-per-view="1"
-          :space-between="30"
-          :loop="true"
-          :autoplay="{
-            delay: 3000,
-            disableOnInteraction: false
-          }"
-          :navigation="true"
-          :pagination="{ clickable: true }"
-          :breakpoints="{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 }
-          }"
-        >
-          <SwiperSlide v-for="blog in blogs" :key="blog.id">
-            <router-link
-              :to="`/blog/${blog.attributes.slug}`"
-              class="blog-link d-block h-100"
-            >
-              <div
-                class="blog-card h-100"
-                :style="{
-                  'background-image': getImageUrl(blog)
-                    ? `url('${getImageUrl(blog)}')`
-                    : 'none',
-                  'background-color': !getImageUrl(blog)
-                    ? 'var(--light-green)'
-                    : '',
-                }"
+        <!-- Empty State -->
+        <div v-if="blogs.length === 0" class="text-center py-5">
+          <p>No blogs found</p>
+        </div>
+
+        <!-- Data Loaded State -->
+        <div v-else>
+          <Swiper
+            class="blog-swiper"
+            :modules="[Navigation, Pagination, Autoplay]"
+            :slides-per-view="1"
+            :space-between="30"
+            :loop="true"
+            :autoplay="{
+              delay: 3000,
+              disableOnInteraction: false,
+            }"
+            :navigation="true"
+            :pagination="{ clickable: true }"
+            :breakpoints="{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }"
+          >
+            <SwiperSlide v-for="blog in blogs" :key="blog.id">
+              <router-link
+                :to="`/blog/${blog.attributes.slug}`"
+                class="blog-link d-block h-100"
               >
                 <div
-                  v-if="!getImageUrl(blog)"
-                  class="blog-image-placeholder"
-                ></div>
-                <div class="blog-content">
-                  <h3>{{ blog.attributes.title }}</h3>
+                  class="blog-card h-100"
+                  :style="{
+                    'background-image': getImageUrl(blog)
+                      ? `url('${getImageUrl(blog)}')`
+                      : 'none',
+                    'background-color': !getImageUrl(blog)
+                      ? 'var(--light-green)'
+                      : '',
+                  }"
+                >
+                  <div
+                    v-if="!getImageUrl(blog)"
+                    class="blog-image-placeholder"
+                  ></div>
+                  <div class="blog-content">
+                    <h3>{{ blog.attributes.title }}</h3>
+                  </div>
                 </div>
-              </div>
-            </router-link>
-          </SwiperSlide>
-        </Swiper>
+              </router-link>
+            </SwiperSlide>
+          </Swiper>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <Footer />
 </template>
@@ -251,6 +251,11 @@ const getImageUrl = (blog) => {
   border-radius: 2px;
 }
 
+.rounded-corners {
+  border-radius: 12px; /* Adjust this value to control roundness */
+  overflow: hidden; /* Ensures corners stay rounded */
+}
+
 /* Swiper container */
 .blog-swiper {
   width: 100%;
@@ -277,6 +282,9 @@ const getImageUrl = (blog) => {
     width: calc(50% - 12.5px) !important;
     margin-right: 25px !important;
   }
+  .rounded-corners {
+    align-content: center;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -284,13 +292,17 @@ const getImageUrl = (blog) => {
     width: calc(33.333% - 20px) !important;
     margin-right: 30px !important;
   }
+
+  .rounded-corners {
+    align-content: center;
+  }
 }
 
 /* Blog cards */
 .blog-card {
   width: 100%;
-  height: 300px; /* Increased height */
-  min-height: 300px;
+  height: 250px; /* Increased height */
+  min-height: 250px;
   background-size: cover;
   background-position: center;
   border-radius: 8px;
@@ -354,15 +366,15 @@ const getImageUrl = (blog) => {
 /* Responsive adjustments */
 @media (max-width: 1023px) {
   .blog-card {
-    height: 350px;
-    min-height: 350px;
+    height: 250px;
+    min-height: 250px;
   }
 }
 
 @media (max-width: 767px) {
   .blog-card {
-    height: 300px;
-    min-height: 300px;
+    height: 250px;
+    min-height: 250px;
   }
 
   .swiper-button-prev,

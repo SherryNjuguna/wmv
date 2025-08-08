@@ -8,7 +8,6 @@ const navLinks = [
   { label: "HOME", to: "/", icon: "fas fa-home" },
   { label: "ABOUT US", to: "/about", icon: "fas fa-info-circle" },
   { label: "SERVICES", to: "/services", icon: "fas fa-graduation-cap" },
-  { label: "RESOURCES", to: "/resources", icon: "fas fa-store" },
   { label: "SHOP", to: "/shop", icon: "fas fa-shop" },
   { label: "CONTACT US", to: "/contact", icon: "fas fa-envelope" }
 ]

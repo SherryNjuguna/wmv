@@ -8,7 +8,7 @@ const book = ref({
   title: "How to Buy Your First Shares in Kenya",
   price: "KES 389.00",
   buyLink: "https://payhip.com/b/49yEH",
-  image: "/book.jpeg", // Update this path if the image is stored elsewhere
+  image: "/book.jpeg", 
   description: [
     "This guide is your shortcut to starting — the easy way.",
     "If you've ever opened a CDS account and then got stuck...",

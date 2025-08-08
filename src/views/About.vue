@@ -4,19 +4,24 @@ import Footer from "../components/Footer.vue";
 import Mission from "../components/Mission.vue";
 </script>
 
-
 <template>
   <Navbar />
 
   <!-- Hero Section -->
-  <section class="hero-section position-relative w-100 overflow-hidden d-flex align-items-center">
+  <section
+    class="hero-section position-relative w-100 overflow-hidden d-flex align-items-center"
+  >
     <img
       src="/hero2.jpeg"
       alt="WMV Background"
       class="w-100 h-100 object-fit-cover position-absolute top-0 start-0"
     />
-    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
-    <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3 container">
+    <div
+      class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"
+    ></div>
+    <div
+      class="position-absolute top-50 start-50 translate-middle text-center text-white px-3 container"
+    >
       <h1 class="display-5 fw-semibold">
         <strong class="d-block">About</strong>
         Wealth Mindset Ventures
@@ -28,23 +33,37 @@ import Mission from "../components/Mission.vue";
   <section class="bg-light-green py-5" data-aos="fade-up">
     <div class="container d-flex flex-wrap">
       <div class="col-lg-6 pe-lg-4">
-        <h2 class="text-dark-green mb-5 text-center position-relative section-title">
+        <h2
+          class="text-dark-green mb-5 text-center position-relative section-title"
+        >
           Who we Are
           <span class="title-line"></span>
         </h2>
         <p class="mb-4">
-          At The Wealth Mindset Ventures, we believe that financial literacy is the cornerstone of building lasting wealth and achieving financial independence. <br />
-          Our mission is to empower individuals across all stages of life—students, employees, and social groups—with the skills, knowledge, and confidence to make informed financial decisions.
-          Through tailored workshops, interactive training sessions, and practical tools, WMV bridges the gap between financial principles and real-world application. <br />
-          Founded with a passion for transforming lives, we are dedicated to equipping communities with the mindset, strategies, and discipline needed to unlock their full financial potential.
-          Together, we can master money and shape a brighter future.
+          At The Wealth Mindset Ventures, we believe that financial literacy is
+          the cornerstone of building lasting wealth and achieving financial
+          independence. <br />
+          Our mission is to empower individuals across all stages of
+          life—students, employees, and social groups—with the skills,
+          knowledge, and confidence to make informed financial decisions.
+          Through tailored workshops, interactive training sessions, and
+          practical tools, WMV bridges the gap between financial principles and
+          real-world application. <br />
+          Founded with a passion for transforming lives, we are dedicated to
+          equipping communities with the mindset, strategies, and discipline
+          needed to unlock their full financial potential. Together, we can
+          master money and shape a brighter future.
         </p>
       </div>
-      <div class="col-lg-6 text-center mt-4 mt-lg-0">
+
+      <div
+        class="col-lg-6 text-center mt-4 mt-lg-0 mx-auto mx-lg-0"
+        data-aos="fade-up"
+      >
         <img
           src="/wmv11.jpeg"
-          alt="About WMV"
-          class="img-fluid"
+          alt="about bulb"
+          class="img-fluid rounded-corners d-block mx-auto"
           style="max-height: 400px"
         />
       </div>
@@ -58,7 +77,9 @@ import Mission from "../components/Mission.vue";
         <div class="col-12 col-lg-10">
           <div class="card philosophy-card shadow-lg border-0">
             <div class="card-body p-4 p-lg-5">
-              <h2 class="text-dark-green text-center mb-4 position-relative section-title">
+              <h2
+                class="text-dark-green text-center mb-4 position-relative section-title"
+              >
                 Our Philosophy
                 <span class="title-line mx-auto"></span>
               </h2>
@@ -73,7 +94,9 @@ import Mission from "../components/Mission.vue";
                   </li>
                   <li class="mb-3 d-flex align-items-start">
                     <span class="text-success me-2">•</span>
-                    <span>A doctor has to study medicine to become a doctor.</span>
+                    <span
+                      >A doctor has to study medicine to become a doctor.</span
+                    >
                   </li>
                   <li class="mb-4 d-flex align-items-start">
                     <span class="text-success me-2">•</span>
@@ -83,14 +106,20 @@ import Mission from "../components/Mission.vue";
 
                 <p class="fw-bold mb-4">Wealth is no exception.</p>
                 <p class="mb-4">You have to make it a study to become.</p>
-                <p class="mb-4">You have to study money and wealth to become wealthy.</p>
                 <p class="mb-4">
-                  At WMV, we believe that financial success is not a matter of luck or chance—it is a skill that can be learned and mastered.
-                  Wealth is built when individuals commit to understanding financial principles, applying them strategically, and continuously evolving their knowledge.
+                  You have to study money and wealth to become wealthy.
+                </p>
+                <p class="mb-4">
+                  At WMV, we believe that financial success is not a matter of
+                  luck or chance—it is a skill that can be learned and mastered.
+                  Wealth is built when individuals commit to understanding
+                  financial principles, applying them strategically, and
+                  continuously evolving their knowledge.
                 </p>
 
                 <p class="mb-0 fst-italic fw-bold">
-                  That's why we exist: to help you study wealth, grow wealth, and live wealthy.
+                  That's why we exist: to help you study wealth, grow wealth,
+                  and live wealthy.
                 </p>
               </div>
             </div>
@@ -103,7 +132,6 @@ import Mission from "../components/Mission.vue";
   <Mission />
   <Footer />
 </template>
-
 
 <style scoped>
 .hero-section {
@@ -119,15 +147,29 @@ import Mission from "../components/Mission.vue";
   font-weight: 600;
 }
 
+
+.rounded-corners {
+  border-radius: 12px; /* Adjust this value to control roundness */
+  overflow: hidden; /* Ensures corners stay rounded */
+}
+
+
 @media (min-width: 640px) {
   .hero-section {
     height: 50vh;
+  }
+
+  .rounded-corners {
+    align-content: center;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-section {
     height: 60vh;
+  }
+  .rounded-corners {
+    align-content: center;
   }
 }
 
